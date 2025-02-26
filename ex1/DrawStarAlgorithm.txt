@@ -1,0 +1,33 @@
+function DrawStar(num)
+    if num ≤ 0 then
+        print "Error: number must be greater than zero"
+        return
+    end if
+    countRow ← (num * 2) - 1
+    countColumn ← 0
+    countNum ← 0
+    DrawPattern(countRow, countColumn, countNum, num)
+end function
+
+function DrawPattern(countRow, countColumn, countNum, num)
+    if countNum = countRow then
+        return
+    end if
+    countNum ← countNum + 1
+    if countNum ≤ num then
+        countColumn ← countColumn + 1
+    else
+        countColumn ← countColumn - 1
+    end if
+    PrintStars(countColumn)
+    DrawPattern(countRow, countColumn, countNum, num)
+end function
+
+function PrintStars(n)
+    if n = 0 then
+        print ""
+        return
+    end if
+    print "*", no newline
+    PrintStars(n - 1)
+end function
